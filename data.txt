@@ -6,11 +6,11 @@ You can access Banner Self-Service for registration by logging into the universi
 
 The deadline for registering for classes at Rowan University varies depending on the semester and the type of course. You can find registration deadlines and other important dates on the university's academic calendar.
 
-To add or drop a course at Rowan University, you can log into Banner Self-Service and follow the prompts to make changes to your course schedule. You may also need to meet with your academic advisor to discuss any changes to your course schedule. 
+To add or drop a course at Rowan University, you can log into Banner Self-Service and follow the prompts to make changes to your course schedule. You may also need to meet with your academic advisor to discuss any changes to your course schedule.
 
-Rowan University participates in the New Jersey Statewide Transfer Agreement, which allows students to take courses at other participating colleges and universities while still earning credits towards their Rowan degree. You should consult with your academic advisor and the Office of the Registrar for more information on transferring credits. 
+Rowan University participates in the New Jersey Statewide Transfer Agreement, which allows students to take courses at other participating colleges and universities while still earning credits towards their Rowan degree. You should consult with your academic advisor and the Office of the Registrar for more information on transferring credits.
 
-If a course you want to take is full, you may be able to add yourself to a waitlist for that course. If a spot becomes available, you will receive an email notification and have a limited time to register for the course. You can add yourself to a waitlist through Banner Self-Service. 
+If a course you want to take is full, you may be able to add yourself to a waitlist for that course. If a spot becomes available, you will receive an email notification and have a limited time to register for the course. You can add yourself to a waitlist through Banner Self-Service.
 
 To change your major at Rowan University, you must first meet with an advisor in the department of the major you wish to pursue. You will then need to fill out a Change of Program form and submit it to the Office of the Registrar for processing. To withdraw from a course or from Rowan University altogether, you should meet with your academic advisor and/or the Office of Student Success to discuss your options and the potential consequences of withdrawing. You will then need to submit a Withdrawal form to the Office of the Registrar for processing.
 
@@ -30,4 +30,22 @@ Rowan University offers a range of resources for students in need of emergency a
 
 The Rowan University Blue Light Emergency Phone system consists of emergency call boxes located throughout campus that connect directly to Rowan University Public Safety. These call boxes are designed to provide a quick and easy way for students, faculty, and staff to report emergencies and request assistance.
 
+Canvas is Rowan University's learning management system (LMS) that provides an online platform for course delivery, discussion, assignments, and grading.
 
+You can access Canvas through Rowan University's website or by visiting rowan.instructure.com. Log in using your Rowan username and password.
+
+Canvas has a user-friendly interface with a navigation menu on the left side of the screen. You can access your courses, announcements, assignments, and grades from this menu.
+
+To submit an assignment on Canvas, go to the Assignments tab and click on the assignment you want to submit. Follow the instructions to upload your file and submit your assignment.
+
+To check your grades on Canvas, go to the Grades tab and click on the course you want to view. Your grades will be displayed along with any feedback from your instructor.
+
+If you experience technical difficulties with Canvas, you can contact Rowan University's Technology Support Center for assistance by calling 856-256-4400 or emailing support@rowan.edu.
+
+Yes, you can access Canvas on your mobile device by downloading the Canvas app for iOS or Android.
+
+If you accidentally delete an assignment submission in Canvas, you should contact your instructor as soon as possible to explain the situation and request a solution.
+
+To customize your notification settings on Canvas, go to the Account tab and click on Notifications. From here, you can choose which types of notifications you want to receive and how you want to receive them.
+
+Courses remain on Canvas for one year after the end of the semester. After one year, they are archived and can only be accessed by instructors or administrators.
