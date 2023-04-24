@@ -45,11 +45,11 @@ def response(user_response):
         bot_response = bot_response + "I am unable to answer that question, sorry."
 
     else:
-        i = 0
+        i = 1
         while i < len(similar_scores):
             if i > 2:
                 break
-            idx = similar_scores.index(similar_scores[i])
+            idx = similar_scores.index(similar_scores[-i])
             bot_response = bot_response + " " + sentence_tokens[idx]
             i += 1
     
@@ -94,6 +94,5 @@ def chat_flow():
                 sentence_tokens.append(user_response)
                 bot_response = f"Bot: {response(user_response)}"
                 sentence_tokens.remove(user_response)
-    return bot_response
-
+    
 chat_flow()
