@@ -8,20 +8,18 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from fuzzywuzzy import fuzz
 
+stopwords_list = stopwords.words('english')
 
-try:
-    if not nltk.corpus.stopwords.words('english'):
-        nltk.download('stopwords')
-    stopwords_list = stopwords.words('english')
+def queirs():
+    with open("data.txt", "r", encoding = "UTF-8") as data_file:
+        data = data_file.read()
+    data_file.close()
+    
+    return data
 
-except Exception as e:
-    print("Error downloading stopwords:", e) 
-
-with open("data.txt", "r", encoding = "UTF-8") as data_file:
-    text = data_file.read()
-    text = text.lower()
-    sentence_tokens = nltk.sent_tokenize(text)
-    word_tokens = nltk.word_tokenize(text)
+text = queirs()
+sentence_tokens = nltk.sent_tokenize(text)
+word_tokens = nltk.word_tokenize(text)
 
 
 def LemNormalize(words_list):
