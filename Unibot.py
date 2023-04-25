@@ -3,21 +3,24 @@ import nltk
 from nltk.corpus import stopwords
 import re
 import string 
+import warnings
 import random
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from fuzzywuzzy import fuzz
 
-stopwords_list = stopwords.words('english')
 
-def queirs():
+stopwords_list = stopwords.words('english')
+warnings.filterwarnings("ignore")
+
+def queries():
     with open("data.txt", "r", encoding = "UTF-8") as data_file:
         data = data_file.read()
     data_file.close()
     
-    return data
+    return data 
 
-text = queirs()
+text = queries()
 sentence_tokens = nltk.sent_tokenize(text)
 word_tokens = nltk.word_tokenize(text)
 
@@ -40,18 +43,19 @@ def greetings(greeting_sentence):
 def response(user_response):   
     bot_response = ""
     similar_scores = train(user_response)
-    
+     
     if not similar_scores:
         bot_response = bot_response + "I am unable to answer that question, sorry."
 
     else:
-        i = 1
-        while i < len(similar_scores):
-            if i > 2:
+        i = 0
+        while len(similar_scores) != 0:
+            if i == 3:
                 break
-            idx = similar_scores.index(similar_scores[-i])
+            idx = similar_scores.index(max(similar_scores))
             bot_response = bot_response + " " + sentence_tokens[idx]
             i += 1
+            similar_scores.remove(max(similar_scores))
     
     return bot_response
 
@@ -66,33 +70,43 @@ def train(user_response):
         weighted_score = vals[0][i] + (ratio / 100)
         similarity_scores.append(weighted_score) 
 
-    return sorted(similarity_scores)
+    return similarity_scores
 
 def chat_flow():  
-    bot_response = ""
+    bot_response = None
+    flag = True
     print("Bot: Hi there! How can I assist you today?")
     
-    user_response = input("User: ")
-    user_response = user_response.lower()
+    while flag:
+        user_response = input("User: ")
+        user_response = user_response.lower()
 
-    if "bye" in user_response:
-        print("Bot: Goodbye!")
-
-    else:
-        if user_response.startswith("Thank".lower()):
-            print("Bot: You are Welcome. Is that all")
-                
-            u_response = input("User: ")
-            if u_response == "yes" or u_response == "yep":
-                print("Bot: Goodbye!")
+        if "bye" in user_response:
+            flag = False
+            print("Bot: Goodbye!")
 
         else:
-            if greetings(user_response) != None:
-                print("Bot: " + greetings(user_response))
-               
+            if user_response.startswith("Thank".lower()):
+                print("Bot: You are Welcome. Is that all")
+                
+                u_response = input("User: ")
+                if u_response == "yes" or u_response == "yep":
+                    print("Bot: Goodbye!")
+                    flag = False
+            
             else:
-                sentence_tokens.append(user_response)
-                bot_response = f"Bot: {response(user_response)}"
-                sentence_tokens.remove(user_response)
-    
+                if greetings(user_response) != None:
+                    print("Bot: " + greetings(user_response))
+               
+                else:
+                    sentence_tokens.append(user_response)
+                    bot_response = f"Bot: {response(user_response)}"
+                    sentence_tokens.remove(user_response)
+                    #print(bot_response)
+                    #ratio = fuzz.token_sort_ratio(bot_response1, bot_response2) 
+                    #if ratio < 85:
+                     #  print(f"Bot: {her_response} or {bot_response}")
+                    #else:
+                    print(bot_response) 
+
 chat_flow()
