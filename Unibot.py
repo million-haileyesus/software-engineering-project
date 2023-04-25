@@ -16,6 +16,7 @@ warnings.filterwarnings("ignore")
 def queries():
     with open("data.txt", "r", encoding = "UTF-8") as data_file:
         data = data_file.read()
+        data = data.lower()
     data_file.close()
     
     return data 
@@ -53,10 +54,10 @@ def response(user_response):
             if i == 3:
                 break
             idx = similar_scores.index(max(similar_scores))
-            bot_response = bot_response + " " + sentence_tokens[idx]
+            bot_response = bot_response + " " + sentence_tokens[idx].strip().capitalize() 
             i += 1
             similar_scores.remove(max(similar_scores))
-    
+            
     return bot_response
 
 def train(user_response):
