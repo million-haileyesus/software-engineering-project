@@ -73,7 +73,7 @@ def train(user_response):
     return similarity_scores
 
 def chat_flow():  
-    bot_response = None
+    bot_response = ""
     flag = True
     print("Bot: Hi there! How can I assist you today?")
     
