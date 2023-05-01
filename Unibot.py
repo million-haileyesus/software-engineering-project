@@ -2,6 +2,7 @@ import nltk
 import string
 import warnings
 import random
+import re
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from fuzzywuzzy import fuzz
@@ -18,7 +19,7 @@ warnings.filterwarnings("ignore")
 def queries():
     with open("data.txt", "r", encoding = "UTF-8") as data_file:
         data = data_file.read()
-        data = data.lower()
+        data = re.sub(r'[\n\t\r]+', ' ', data)
     data_file.close()
 
     return data
@@ -26,7 +27,7 @@ def queries():
 def preprocess_text(input_text):
     lem = WordNetLemmatizer()
     remove_punctuations = dict((ord(punct), None) for punct in string.punctuation)
-    tokens = nltk.word_tokenize(input_text)
+    tokens = nltk.word_tokenize(input_text.lower())
     filtered_tokens = [lem.lemmatize(token) for token in tokens]
     filtered_tokens = [token.translate(remove_punctuations) for token in filtered_tokens]
 
@@ -59,7 +60,17 @@ def response(user_response):
         else:
             idx = similar_scores.index(score)
             bot_response = bot_response + sentence_tokens[idx].strip().capitalize()
-            
+
+        #i = 0
+        #while len(similar_scores) != 0:
+         #   if i == 3:
+         #       break
+          #  idx = similar_scores.index(max(similar_scores))
+           # print(max(similar_scores))
+          #  bot_response = bot_response + " " + sentence_tokens[idx].strip().capitalize()
+           # i += 1
+            #similar_scores.remove(max(similar_scores))
+
     return bot_response
 
 def train(user_response):
