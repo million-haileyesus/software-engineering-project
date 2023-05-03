@@ -18,8 +18,8 @@ warnings.filterwarnings("ignore")
 
 def queries():
     with open("data.txt", "r", encoding = "UTF-8") as data_file:
-        data = data_file.read()
-        data = re.sub(r'[\n\t\r]+', ' ', data)
+        data = data_file.readlines()
+        data = [re.sub(r'[\n\t\r]+', ' ', line) for line in data]
     data_file.close()
 
     return data
@@ -27,14 +27,14 @@ def queries():
 def preprocess_text(input_text):
     lem = WordNetLemmatizer()
     remove_punctuations = dict((ord(punct), None) for punct in string.punctuation)
-    tokens = nltk.word_tokenize(input_text.lower())
+    tokens = nltk.word_tokenize(input_text)
     filtered_tokens = [lem.lemmatize(token) for token in tokens]
     filtered_tokens = [token.translate(remove_punctuations) for token in filtered_tokens]
 
     return filtered_tokens
 
 text = queries()
-sentence_tokens = nltk.sent_tokenize(text)
+sentence_tokens = text
 
 def greetings(greeting_sentence):
     greeting_inputs = ["hello", "hi", "hey", "how is it going?", "how are you doing?", "what's up", "whats up", "hi there"]
@@ -59,17 +59,7 @@ def response(user_response):
 
         else:
             idx = similar_scores.index(score)
-            bot_response = bot_response + sentence_tokens[idx].strip().capitalize()
-
-        #i = 0
-        #while len(similar_scores) != 0:
-         #   if i == 3:
-         #       break
-          #  idx = similar_scores.index(max(similar_scores))
-           # print(max(similar_scores))
-          #  bot_response = bot_response + " " + sentence_tokens[idx].strip().capitalize()
-           # i += 1
-            #similar_scores.remove(max(similar_scores))
+            bot_response = bot_response + text[idx].strip().capitalize()
 
     return bot_response
 
