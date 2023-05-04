@@ -102,8 +102,9 @@ def chat_flow():
                     flag = False
 
             else:
-                if greetings(user_response) != None:
-                    print("Bot: " + greetings(user_response))
+                greet = greetings(user_response)
+                if  != None:
+                    print("Bot: " + greet)
 
                 else:
                     sentence_tokens.append(user_response)
