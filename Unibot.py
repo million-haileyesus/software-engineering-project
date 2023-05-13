@@ -95,12 +95,7 @@ def chat_flow():
         else:
             if user_response.startswith("Thank".lower()):
                 print("Bot: You are Welcome. Is that all")
-
-                u_response = input("User: ")
-                if u_response == "yes" or u_response == "yep":
-                    print("Bot: Goodbye!")
-                    flag = False
-
+                
             else:
                 greet = greetings(user_response)
                 if  != None:
