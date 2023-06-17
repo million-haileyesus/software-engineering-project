@@ -98,7 +98,7 @@ def chat_flow():
                 
             else:
                 greet = greetings(user_response)
-                if  != None:
+                if greet != None:
                     print("Bot: " + greet)
 
                 else:
